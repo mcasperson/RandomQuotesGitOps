@@ -1,1 +1,25 @@
-a
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: octopus-deployment
+  labels:
+    app: web
+spec:
+  selector:
+    matchLabels:
+      octopusexport: OctopusExport
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: web
+        octopusexport: OctopusExport
+    spec:
+      containers:
+        - name: randomquotes
+          image: octopussamples/randomquotesnodejs
+          ports:
+            - name: web
+              containerPort: 80
