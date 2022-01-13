@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
         - name: randomquotes
-          image: octopussamples / randomquotesnodejs
+          image: octopussamples/randomquotesnodejs
           ports:
             - name: web
               containerPort: 80
